@@ -1,5 +1,7 @@
 const myLibrary = [];
 
+/*
+
 function Book(title, author, pages, haveRead) {
     this.title = title;
     this.author = author;
@@ -7,6 +9,22 @@ function Book(title, author, pages, haveRead) {
     this.haveRead = haveRead;
 
     this.toggleReadStatus = function() {
+        this.haveRead = !this.haveRead;
+    }
+}
+    
+*/
+
+class Book {
+    
+    constructor(title, author, pages, haveRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.haveRead = haveRead;
+    }
+
+    toggleReadStatus() {
         this.haveRead = !this.haveRead;
     }
 }
@@ -69,12 +87,14 @@ function submitBook(event) {
     showLibrary();
 
     bookForm.reset();
+    bookForm.classList.remove("new-form-show");
 }
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
 }
 
+const newBookBtn = document.querySelector(".new-book")
 const bookForm = document.querySelector(".new-form");
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
@@ -82,5 +102,9 @@ const pagesInput = document.getElementById("pages");
 const readInput = document.getElementById("have-read");
 
 bookForm.addEventListener("submit", submitBook);
+
+newBookBtn.addEventListener("click", () => {
+    bookForm.classList.toggle("new-form-show");
+})
 
 showLibrary();

@@ -32,12 +32,16 @@
 }
 
 .new-form {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 16px;
     max-width: 500px;
+}
+
+.new-form-show {
+    display: flex; /* Show the form by setting display to flex */
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .new-form input[type="text"] {
